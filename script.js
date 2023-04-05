@@ -85,7 +85,7 @@ const displeyMovement = function (movement, sort = false) {
                       mov > 0 ? 'deposit' : 'withdrawal'
                     }">${index + 1} ${mov > 0 ? 'deposit' : 'withdrawal'}</div>
                     <div class="movements__date">3 days ago</div>
-                    <div class="movements__value">${mov}€</div>
+                    <div class="movements__value">${mov.toFixed(2)}€</div>
                   </div>`;
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
@@ -94,7 +94,7 @@ const displeyMovement = function (movement, sort = false) {
 // umumiy summa
 const callsDispleyMovement = function (acc) {
   acc.balance = acc.movements.reduce((acc, val, index, arr) => acc + val, 0);
-  labelBalance.textContent = `${acc.balance}€`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
 };
 
 // o'tkazmalarni hisoblash
@@ -102,19 +102,19 @@ const calcDispleySummary = function (account) {
   const incomes = account.movements
     .filter(val => val > 0)
     .reduce((acc, val) => acc + val, 0);
-  labelSumIn.textContent = `${incomes}€`;
+  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
 
   const outcomes = account.movements
     .filter(val => val < 0)
     .reduce((acc, val) => acc + val, 0);
-  labelSumOut.textContent = `${Math.abs(outcomes)}€`;
+  labelSumOut.textContent = `${Math.abs(outcomes).toFixed(2)}€`;
 
   const interest = account.movements
     .filter(val => val > 0)
     .map(val => (val * account.interestRate) / 100)
     .filter(val => val >= 1)
     .reduce((acc, val) => acc + val, 0);
-  labelSumInterest.textContent = `${interest}€`;
+  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
 };
 
 // username user yasash
@@ -209,3 +209,58 @@ btnSort.addEventListener('click', function (e) {
   displeyMovement(account.movements, sorts ? (sorts = false) : (sorts = true));
 });
 ///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+console.log(23===23.0)
+
+// base 10-0 to 9
+// binary
+console.log(0.1+0.2)
+console.log(2-0===2)
+
+// converted from string to number
+console.log(Number('34'))
+console.log(+'34')
+
+//parsing
+console.log(Number.parseInt('23or')) // 23 string son bn boshlanishi kk
+console.log(Number.parseInt('e45f')) // NaN
+
+console.log(Number.parseFloat('4.5tr'))
+console.log(Number.parseInt('5.6ytu'))
+console.log(Number.parseFloat('df4.5'))
+
+// isNaN
+console.log(Number.isNaN(+'34kj '))
+console.log(Number.isNaN(90))
+console.log(Number.isNaN(+'10'))
+console.log(Number.isNaN(+'sdcwdv'))
+
+// isFinite number likka
+console.log(Number.isFinite(20))
+console.log(Number.isFinite('40'))
+
+// isInteger butunlikka 
+console.log(Number.isInteger(90))
+console.log(Number.isInteger(90.8))
+
+// math 
+console.log(3**3)
+
+// Rounding integers trunc floor round ceil
+console.log(Math.trunc(34.1))
+console.log(Math.trunc(-90))
+
+console.log(Math.round(23.6))
+console.log(Math.round(23.4))
+
+console.log(Math.ceil(23.6))
+console.log(Math.ceil(23.1))
+
+console.log(Math.floor(23.9))
+console.log(Math.floor(23.1))
+
+// toFixed
+console.log((2.7734.toFixed(3)))
+console.log(+(2.7734.toFixed(1)))
+console.log(+(2.7734).toFixed(6));
+console.log((2.7734).toFixed(5));

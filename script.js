@@ -210,57 +210,74 @@ btnSort.addEventListener('click', function (e) {
 });
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
-console.log(23===23.0)
+// console.log(23===23.0)
 
-// base 10-0 to 9
-// binary
-console.log(0.1+0.2)
-console.log(2-0===2)
+// // base 10-0 to 9
+// // binary
+// console.log(0.1+0.2)
+// console.log(2-0===2)
 
-// converted from string to number
-console.log(Number('34'))
-console.log(+'34')
+// // converted from string to number
+// console.log(Number('34'))
+// console.log(+'34')
 
-//parsing
-console.log(Number.parseInt('23or')) // 23 string son bn boshlanishi kk
-console.log(Number.parseInt('e45f')) // NaN
+// //parsing
+// console.log(Number.parseInt('23or')) // 23 string son bn boshlanishi kk
+// console.log(Number.parseInt('e45f')) // NaN
 
-console.log(Number.parseFloat('4.5tr'))
-console.log(Number.parseInt('5.6ytu'))
-console.log(Number.parseFloat('df4.5'))
+// console.log(Number.parseFloat('4.5tr'))
+// console.log(Number.parseInt('5.6ytu'))
+// console.log(Number.parseFloat('df4.5'))
 
-// isNaN
-console.log(Number.isNaN(+'34kj '))
-console.log(Number.isNaN(90))
-console.log(Number.isNaN(+'10'))
-console.log(Number.isNaN(+'sdcwdv'))
+// // isNaN
+// console.log(Number.isNaN(+'34kj '))
+// console.log(Number.isNaN(90))
+// console.log(Number.isNaN(+'10'))
+// console.log(Number.isNaN(+'sdcwdv'))
 
-// isFinite number likka
-console.log(Number.isFinite(20))
-console.log(Number.isFinite('40'))
+// // isFinite number likka
+// console.log(Number.isFinite(20))
+// console.log(Number.isFinite('40'))
 
-// isInteger butunlikka 
-console.log(Number.isInteger(90))
-console.log(Number.isInteger(90.8))
+// // isInteger butunlikka
+// console.log(Number.isInteger(90))
+// console.log(Number.isInteger(90.8))
 
-// math 
-console.log(3**3)
+// // math
+// console.log(3**3)
 
-// Rounding integers trunc floor round ceil
-console.log(Math.trunc(34.1))
-console.log(Math.trunc(-90))
+// // Rounding integers trunc floor round ceil
+// console.log(Math.trunc(34.1))
+// console.log(Math.trunc(-90))
 
-console.log(Math.round(23.6))
-console.log(Math.round(23.4))
+// console.log(Math.round(23.6))
+// console.log(Math.round(23.4))
 
-console.log(Math.ceil(23.6))
-console.log(Math.ceil(23.1))
+// console.log(Math.ceil(23.6))
+// console.log(Math.ceil(23.1))
 
-console.log(Math.floor(23.9))
-console.log(Math.floor(23.1))
+// console.log(Math.floor(23.9))
+// console.log(Math.floor(23.1))
 
-// toFixed
-console.log((2.7734.toFixed(3)))
-console.log(+(2.7734.toFixed(1)))
-console.log(+(2.7734).toFixed(6));
-console.log((2.7734).toFixed(5));
+// // toFixed
+// console.log((2.7734.toFixed(3)))
+// console.log(+(2.7734.toFixed(1)))
+// console.log(+(2.7734).toFixed(6));
+// console.log((2.7734).toFixed(5));
+
+///////////// remainder operators ///////////
+console.log(23 % 4);
+console.log(23 % 9);
+
+labelBalance.addEventListener('click', function (e) {
+  e.preventDefault();
+  const a = [...document.querySelectorAll('.movements__row')];
+  a.forEach((val, index) => {
+    if (index % 2 == 0) {
+      val.style.backgroundColor = 'green';
+    }
+    if(index%3===0){
+      val.style.backgroundColor='yellow'
+    }
+  });
+});
